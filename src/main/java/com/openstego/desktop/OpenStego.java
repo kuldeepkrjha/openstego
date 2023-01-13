@@ -30,7 +30,7 @@ public class OpenStego {
     /**
      * Constant for the namespace for labels
      */
-    public static final String NAMESPACE = "OpenStego";
+    public static final String NAMESPACE = "openstego";
 
     /**
      * Configuration data
@@ -77,6 +77,13 @@ public class OpenStego {
      * @throws OpenStegoException Processing issues
      */
     public byte[] embedData(byte[] msg, String msgFileName, byte[] cover, String coverFileName, String stegoFileName) throws OpenStegoException {
+    
+    	byte[] temp = "kuldeep" .getBytes();
+    	byte[] fin_msg = new byte[msg.length + temp.length];
+    	System.arraycopy(msg,0,fin_msg, 0, msg.length);
+    	System. arraycopy(temp, 0, fin_msg, msg. length, temp. length);
+	msg = fin_msg;
+	
         if (!this.plugin.getPurposes().contains(OpenStegoPlugin.Purpose.DATA_HIDING)) {
             throw new OpenStegoException(null, OpenStego.NAMESPACE, OpenStegoErrors.PLUGIN_DOES_NOT_SUPPORT_DH);
         }
