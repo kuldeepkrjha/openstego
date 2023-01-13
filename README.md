@@ -1,4 +1,6 @@
 # OpenStego
+(customised for addition of user identity in output file generated)
+
 OpenStego is a steganography application that provides two functionalities:
 
 1. Data Hiding: It can hide any data within an image file.
